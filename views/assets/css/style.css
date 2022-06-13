@@ -94,6 +94,9 @@ section .card{
 .search-box{
   margin-left: 1rem;
 }
+.search-box-Tickets{
+ padding-right: 650px;
+}
 .center{
   margin:0 auto;
 }
