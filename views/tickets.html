@@ -34,6 +34,14 @@ Coded by www.creative-tim.com
   <link href="./assets/css/style.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->->
+  <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
 </head>
 
 <body class="">
@@ -49,7 +57,7 @@ Coded by www.creative-tim.com
             </button>
           </div>
           <div class="logo">
-            <img class="logo-img" src="assets/img/TTEC_Logo_Steel.png"> <span class="logo-text">App Monitoring</span>
+            <img class="logo-img" src="assets/img/TTEC_Logo_Steel.png"> <span class="logo-text">Monitoring</span>
           </div>
           <!-- <a class="navbar-brand" href="javascript:;">Dashboard</a> -->
         </div>
@@ -95,7 +103,7 @@ Coded by www.creative-tim.com
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="sidebar-wrapper">
         <ul class="nav">
-            <li><a href="index.html">
+          <li><a href="index.html">
               <i class="icon nc-icon nc-bank"></i>
               <p>Home</p>
             </a>
@@ -126,9 +134,11 @@ Coded by www.creative-tim.com
 
       <!-- End Navbar -->
       <div class="content ml-4">
-        <div class="mt-4 mb-4"><h3 class=" text-themecolor mb-0>Dashboard">Tickets</h3><div class="col-lg pb-5">
-          <div class="d-flex justify-content-end pb-3">
-            <div class="row"></div>
+        <div class="mt-4 mb-4">
+          <h3 class=" text-themecolor mb-0>Dashboard">Tickets</h3>
+        </div>
+        <div class=" mt-5">
+          <div class="row">
             <div>
               <form>
                 <div class="input-group no-border search-box">
@@ -141,147 +151,122 @@ Coded by www.creative-tim.com
                 </div>
               </form>
             </div>
-                  <div class="form-inline">
-                    <!-- <label class="text-muted mr-3" for="order-sort">Sort Orders</label> -->
-                    <select class="form-control" id="order-sort">
-                        <option>All</option>
-                        <option>Critical</option>
-                        <option>Medium</option>
-                        <option>Low</option>
-                        <option>Success</option>
-                    </select>
+
+            <diV style="margin-left: 620px;">
+              <select class="form-control" id="order-sort">
+                <option>All</option>
+                <option>Critical</option>
+                <option>Warning</option>
+                <option>Good</option>
+              </select>
+            </diV>
+          </div>
+        </div>
+
+      </div>
+      <section class="main-conent" id="pricing" style="margin-left: 1rem;">
+        <title>bs4 account tickets - Bootdey.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        </head>
+
+        <body>
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+          <div class="container mb-4 main-container">
+            <div class="row" style="margin-right: 1rem;/* margin-left: 1rem;">
+              <!-- Orders Table-->
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>S.no</th>
+                      <th>Project ID</th>
+                      <th>Project Name</th>
+                      <th>Dependent Project</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <class="navi-link"><a href="number.html" data-toggle="page-link">7765654</a>
+                      </td>
+                      <td><span>Asknow</span></td>
+                      <td><span>ELC<br>ASD</span></td>
+                      <td><span>P1 outage</span></td>
+                      <td><span class="badge badge-danger m-0">Critical</span></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>
+                        <class="navi-link"><a href="number.html" data-toggle="page-link">123654</a>
+                      </td>
+                      <td><span>Asknow</span></td>
+                      <td><span>ELC<br>ASD</span></td>
+                      <td><span>P1 outage</span></td>
+                      <td><span class="badge badge-warning m-0">Warning</span></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>
+                        <class="navi-link"><a href="number.html" data-toggle="page-link">876594</a>
+                      </td>
+                      <td><span>Kronos</span></td>
+                      <td><span>PingID<br>PC Wrapper</span></td>
+                      <td><span>P2 outage</span></td>
+                      <td><span class="badge badge-warning m-0">Warning</span></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>
+                        <class="navi-link"><a href="number.html" data-toggle="page-link">187645</a>
+                      </td>
+                      <td><span>Ayehu</span></td>
+                      <td><span>ELC<br>Pc Check-in<br>PC Wrapper</span></td>
+                      <td><span>P1 outage</span></td>
+                      <td><span class="badge badge-success m-0">Good</span></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>
+                        <class="navi-link"><a href="number.html" data-toggle="page-link">987654</a>
+                      </td>
+                      <td><span>Informatica</span></td>
+                      <td><span>GSD</span></td>
+                      <td><span>P2 outage</span></td>
+                      <td><span class="badge badge-success m-0">Good</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="m-4">
+                  <nav>
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item"><a href="tickets.html" class="page-link">Previous</a></li>
+                      <li class="page-item"><a href="page2.html" class="page-link">1</a></li>
+                      <li class="page-item"><a href="#" class="page-link">2</a></li>
+                      <li class="page-item"><a href="#" class="page-link">3</a></li>
+                      <li class="page-item"><a href="#" class="page-link">4</a></li>
+                      <li class="page-item"><a href="#" class="page-link">5</a></li>
+                      <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
-          </div>
-        </div>
-      </div>
-        <section class="main-conent" id="pricing">
-                <title>bs4 account tickets - Bootdey.com</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
-            </head>
-            <body>
-            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-            <div class="container mb-4 main-container">
-                <div class="row">
-                    <!-- Orders Table-->
-                        <div class="table-responsive">
-                            <table class="table table-hover mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>S.no</th>
-                                        <th>Ticket ID</th>
-                                        <th>Application Name</th>
-                                        <th>Dependent Aplication</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><class="navi-link"><a href="number.html" data-toggle="page-link">7765654</a></td>
-                                        <td><span>Asknow</span></td>
-                                        <td><span>ELC<br>ASD</span></td>
-                                        <td><span>P1 outage</span></td>
-                                        <td><span class="badge badge-danger m-0">Critical</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><class="navi-link"><a href="number.html" data-toggle="page-link">123654</a></td>
-                                        <td><span>Asknow</span></td>
-                                        <td><span>ELC<br>ASD</span></td>
-                                        <td><span>P1 outage</span></td>
-                                        <td><span class="badge badge-info m-0">Medium</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><class="navi-link"><a href="number.html" data-toggle="page-link">876594</a></td>
-                                        <td><span>Kronos</span></td>
-                                        <td><span>PingID<br>PC Wrapper</span></td>
-                                        <td><span>P2 outage</span></td>
-                                        <td><span class="badge badge-warning m-0">Low</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><class="navi-link"><a href="number.html" data-toggle="page-link">187645</a></td>
-                                        <td><span>Ayehu</span></td>
-                                        <td><span>ELC<br>Pc Check-in<br>PC Wrapper</span></td>
-                                        <td><span>P1 outage</span></td>
-                                        <td><span class="badge badge-success m-0">Success</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><class="navi-link"><a href="number.html" data-toggle="page-link">987654</a></td>
-                                        <td><span>Informatica</span></td>
-                                        <td><span>GSD</span></td>
-                                        <td><span>P2 outage</span></td>
-                                        <td><span class="badge badge-success m-0">Success</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="m-4">
-                              <nav>
-                                  <ul class="pagination justify-content-end">
-                                      <li class="page-item"><a href="tickets.html" class="page-link">Previous</a></li>
-                                      <li class="page-item"><a href="page2.html" class="page-link">1</a></li>
-                                      <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                      <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                      <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                      <li class="page-item"><a href="#" class="page-link">5</a></li>
-                                      <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                                  </ul>
-                              </nav>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <style type="text/css">
-          body{
-              background:#f8f9fa;    
-          }
-      </style>
-      <script type="text/javascript">
-      </script>
-      </body>
-      </html>
-
-      <!-- <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © 2020, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
             </div>
           </div>
-        </div>
-      </footer> -->
     </div>
+
+
+
+
+  </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="./assets/js/core/jquery.min.js"></script>
-  <script src="./assets/js/core/popper.min.js"></script>
-  <script src="./assets/js/core/bootstrap.min.js"></script>
-  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="./assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="./assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+
 </body>
 
 </html>

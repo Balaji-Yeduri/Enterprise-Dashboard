@@ -12,10 +12,24 @@ app.use(express.static(path.join(__dirname,'views')));
 //=======================
 //      R O U T E S
 //=======================
-app.get("/", (req,res) =>{
-   res.sendFile(path.join(__dirname,'views','index.html'));
+app.get(["/","/index.html"], (req,res) =>{
+    res.render('index.ejs',{});
 });
-
+app.get(["/","/analytics.html"], (req,res) =>{
+    res.render('analytics.ejs',{});
+});
+app.get(["/","/create project.html"], (req,res) =>{
+    res.render('create project.ejs',{});
+});
+app.get(["/","/edit project.html"], (req,res) =>{
+    res.render('edit project.ejs',{});
+});
+app.get(["/","/project-managment.html"], (req,res) =>{
+    res.render('project-managment.ejs',{});
+});
+app.get(["/","/tickets.html"], (req,res) =>{
+    res.render('tickets.ejs',{});
+});
 //Auth Routes
 // app.get("/login",(req,res)=>{
 //     res.render("login");
