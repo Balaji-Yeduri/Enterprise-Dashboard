@@ -77,9 +77,51 @@
   box-sizing: border-box
 }
 /* added by priya */
+.arrow{
+  margin-top: 112px;
+  font-size: 28px;
+  color: cornflowerblue;
+}
+#outer {
+  float: left;
+  width: 913px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  margin-left: 2px;
+  margin-right:2px;
+}
 
+#left-button {
+  float: left;
+  width: 30px;
+  text-align: center;
+}
+
+#right-button {
+  float: left;
+  width: 30px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: red;
+}
+
+#inner:first-child {
+  margin-left: 0;
+}
+
+
+
+.hide {
+  display: none;
+}
 section .card{
-  max-width: 230px !important;
+  max-width: 220px !important;
+  display: inline-block;
 }
 .circle {
   width: 100px;

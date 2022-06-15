@@ -15,27 +15,34 @@ Coded by www.creative-tim.com
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-      Enterprice Application Dashboard
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-      name='viewport' />
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <!-- CSS Files -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <link href="./assets/css/style.css?v=2.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <!-- <link href="./assets/demo/demo.css" rel="stylesheet" /> -->
-  </head>
-  
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Enterprice Application Dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <!-- CSS Files -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <link href="./assets/css/style.css?v=2.0.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->->
+  <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+</head>
 
 <body class="">
   <header>
@@ -96,8 +103,7 @@ Coded by www.creative-tim.com
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li>
-            <a href="index.html">
+          <li><a href="index.html">
               <i class="icon nc-icon nc-bank"></i>
               <p>Home</p>
             </a>
@@ -111,7 +117,7 @@ Coded by www.creative-tim.com
           <li>
             <a href="analytics.html">
               <i class="fa fa-line-chart icon"></i>
-              <p>Analytics</p>
+              <p>Analytical</p>
             </a>
           </li>
           <li class="active">
@@ -128,50 +134,57 @@ Coded by www.creative-tim.com
 
       <!-- End Navbar -->
       <div class="content ml-4">
-      <!-- Navbar -->
-
-      <!-- End Navbar -->
-      <div class="mt-4 mb-4"><h3 class=" text-themecolor mb-0>Dashboard">Tickets</h3></div>
-
-      <div class=" mt-5">
-        <div class="row">
-          <div>
-            <form>
-              <div class="input-group no-border search-box">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="nc-icon nc-zoom-split"></i>
+        <div class="mt-4 mb-4">
+          <h3 class=" text-themecolor mb-0>Dashboard">Tickets</h3>
+        </div>
+        <div class=" mt-5">
+          <div class="row">
+            <div>
+              <form>
+                <div class="input-group no-border search-box">
+                  <input type="text" value="" class="form-control" placeholder="Search...">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <i class="nc-icon nc-zoom-split"></i>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
-          </div>
-      
-          <diV style="margin-left: 620px;">
-            <select class="form-control" id="order-sort">
-              <option>All</option>
-              <option>Critical</option>
-              <option>Medium</option>
-              <option>Low</option>
-              <option>Success</option>
-            </select>
-          </diV>
-        </div>
-      </div>
+              </form>
+            </div>
 
-    
+            <diV style="margin-left: 620px;">
+              <select class="form-control" id="order-sort">
+                <option>All</option>
+                <option>Critical</option>
+                <option>Warning</option>
+                <option>Good</option>
+              </select>
+            </diV>
+          </div>
+        </div>
+
+      </div>
+      <section class="main-conent" id="pricing" style="margin-left: 1rem;">
+        <title>bs4 account tickets - Bootdey.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        </head>
+
+        <body>
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
           <div class="container mb-4 main-container">
-            <div class="row">
+            <div class="row" style="margin-right: 1rem;/* margin-left: 1rem;">
               <!-- Orders Table-->
               <div class="table-responsive">
                 <table class="table table-hover mb-0">
                   <thead>
                     <tr>
                       <th>S.no</th>
-                      <th>Ticket ID</th>
+                      <th>Project ID</th>
                       <th>Project Name</th>
-                      <th>Dependent Application</th>
+                      <th>Dependent Project</th>
                       <th>Description</th>
                       <th>Status</th>
                     </tr>
@@ -244,54 +257,16 @@ Coded by www.creative-tim.com
                 </div>
               </div>
             </div>
-            </div>
           </div>
     </div>
-    </div>
-    <style type="text/css">
-      body {
-        background: #f8f9fa;
-      }
-    </style>
-    <script type="text/javascript">
-    </script>
-</body>
 
-</html>
 
-<!-- <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © 2020, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer> -->
-</div>
-</div>
-<!--   Core JS Files   -->
-<script src="./assets/js/core/jquery.min.js"></script>
-<script src="./assets/js/core/popper.min.js"></script>
-<script src="./assets/js/core/bootstrap.min.js"></script>
-<script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
-<script src="./assets/js/plugins/chartjs.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="./assets/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+
+
+  </div>
+  </div>
+  <!--   Core JS Files   -->
+
 </body>
 
 </html>

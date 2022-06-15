@@ -35,7 +35,83 @@ Coded by www.creative-tim.com
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script>
+  $(function() {
+   var print = function(msg) {
+     alert(msg);
+   };
 
+   var setInvisible = function(elem) {
+     elem.css('visibility', 'hidden');
+   };
+   var setVisible = function(elem) {
+     elem.css('visibility', 'visible');
+   };
+
+   var elem = $("#elem");
+   var items = elem.children();
+
+   // Inserting Buttons
+   elem.prepend('<i id="left-button" class="arrow fa-solid fa-circle-left"></i>');
+   elem.append('<i id="right-button" class="arrow fa-solid fa-circle-right"></i>');
+
+   // Inserting Inner
+   items.wrapAll('<div id="inner" />');
+
+   // Inserting Outer
+   elem.find('#inner').wrap('<div id="outer"/>');
+
+   var outer = $('#outer');
+
+   var updateUI = function() {
+     var maxWidth = outer.outerWidth(true);
+     var actualWidth = 0;
+     $.each($('#inner >'), function(i, item) {
+       actualWidth += $(item).outerWidth(true);
+     });
+
+     if (actualWidth >= maxWidth) {
+       setVisible($('#right-button'));
+     }
+     if ($('#outer').scrollLeft() <= 0) {
+         setInvisible($('#left-button'));
+       }else{
+        setVisible($('#left-button'));
+       }
+       var leftPos = outer.scrollLeft();
+       if(leftPos + maxWidth >= actualWidth){
+        setInvisible($('#right-button'));
+       }
+   };
+   updateUI();
+
+   $('#left-button').click(function() {
+     var leftPos = outer.scrollLeft();
+     outer.animate({
+       scrollLeft: leftPos - 800
+     }, 800,function() {
+      updateUI();
+         }); 
+       
+     
+   });
+
+   $('#right-button').click(function() {
+     setVisible($('#left-button'));
+     var leftPos = outer.scrollLeft();
+     outer.animate({
+       scrollLeft: leftPos + 800
+     }, 800,function() {
+      updateUI();
+         });
+   });
+  
+ 
+ });
+
+</script>
 <body class="">
   <header>
     <nav class="navbar navbar-expand-lg navbar-absolute fixed-top  topbar">
@@ -132,58 +208,100 @@ Coded by www.creative-tim.com
         </div>
         <section class="main-conent" id="pricing">
           <div class="row">
-            <div class="col-md-3 card pointer  ml-3">
-              <!-- <a href="project-management.html"class="card pointer"> -->
-
-              <div class="card-body center center-allign">
-                <h4>Informatica</h4>
-                <div class="circle mt-3" style="margin-left: 14px;">
-                <div class="critical-count">200 </div>
-                </div>
-                <!-- <button type="button" class="btn-floating  btn btn-dark btn-lg btn-block  download-button">View More</button> -->
-              </div>
-              <!-- </a> -->
+            <div id="elem">
+              <label class="col-md-3 card pointer card-body center center-allign">
+                <!-- <a href="project-management.html"class="card pointer"> -->
+  
+                <label class="">
+                  <h4>Informatica</h4>
+                  <label class="circle mt-3" style="margin-left: 14px;">
+                  <label class="critical-count">200 </label>
+                  </label>
+                  <!-- <button type="button" class="btn-floating  btn btn-dark btn-lg btn-block  download-button">View More</button> -->
+                </label>
+                <!-- </a> -->
+              </label>
+              <label class="card-body center center-allign col-md-3 card pointer ml-3">
+  
+                <label class="">
+                  <h4>Oracle</h4>
+                  <label class="circle mt-3">10</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block  download-button">View More</button> -->
+                </label>
+              </label>
+  
+              <label class="card-body center center-allign col-md-3 card pointer ml-3">
+  
+                <label class="">
+                  <h4 >Kronos</h4>
+                  <label class="circle mt-3">1</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block  download-button">View More</button> -->
+                </label>
+              </label>
+  
+  
+              <label class="col-md-3 card pointer ml-3 card-body center center-allign">
+  
+                <label class="">
+                  <h4>Chat Bot</h4>
+                  <label class="circle mt-3">99</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block download-button">View More</button> -->
+                </label>
+              </label>
+              <label class="col-md-3 card pointer ml-3 card-body center center-allign">
+  
+                <label class="">
+                  <h4>Chat Bot</h4>
+                  <label class="circle mt-3">99</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block download-button">View More</button> -->
+                </label>
+              </label>
+              <label class="col-md-3 card pointer ml-3 card-body center center-allign">
+  
+                <label class="">
+                  <h4>Chat Bot</h4>
+                  <label class="circle mt-3">99</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block download-button">View More</button> -->
+                </label>
+              </label>
+              <label class="col-md-3 card pointer ml-3 card-body center center-allign">
+  
+                <label class="">
+                  <h4>Chat Bot</h4>
+                  <label class="circle mt-3">99</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block download-button">View More</button> -->
+                </label>
+              </label>
+              <label class="col-md-3 card pointer ml-3 card-body center center-allign">
+  
+                <label class="">
+                  <h4>Chat Bot</h4>
+                  <label class="circle mt-3">99</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block download-button">View More</button> -->
+                </label>
+              </label>
+              <label class="col-md-3 card pointer ml-3 card-body center center-allign">
+  
+                <label class="">
+                  <h4>Chat Bot</h4>
+                  <label class="circle mt-3">99</label>
+                  <!-- <button type="button" class="btn btn-dark btn-lg btn-block download-button">View More</button> -->
+                </label>
+              </label>
             </div>
-            <div class=" col-md-3 card pointer ml-3">
-
-              <div class="card-body center center-allign">
-                <h4>Oracle</h4>
-                <div class="circle mt-3">10</div>
-                <!-- <button type="button" class="btn btn-dark btn-lg btn-block  download-button">View More</button> -->
-              </div>
-            </div>
-
-            <div class=" col-md-3 card pointer ml-3">
-
-              <div class="card-body center center-allign">
-                <h4 >Kronos</h4>
-                <div class="circle mt-3">1</div>
-                <!-- <button type="button" class="btn btn-dark btn-lg btn-block  download-button">View More</button> -->
-              </div>
-            </div>
-
-
-            <div class="col-md-3 card pointer ml-3">
-
-              <div class="card-body center center-allign">
-                <h4>Chat Bot</h4>
-                <div class="circle mt-3">99</div>
-                <!-- <button type="button" class="btn btn-dark btn-lg btn-block download-button">View More</button> -->
-              </div>
-            </div>
-
           </div>
+          
         </section>
-        <div class="row mt-5 mr-2 mb-2">
+        <div class="row mt-5 mr-2">
           <div class="col-md-8">
             <div style="background-color:white ;">
               <table class="table table-hover mb-0">
                 <thead>
                   <tr>
                     <th>S.no</th>
-                    <th>Ticket ID</th>
+                    <th>Project ID</th>
                     <th>Project Name</th>
-                    <th>Dependent Application</th>
+                    <th>Dependent Project</th>
                     <th>Description</th>
                     <th>Status</th>
                   </tr>
@@ -231,10 +349,10 @@ Coded by www.creative-tim.com
                   </tr>
                 </tbody>
               </table>
-              <a href="tickets.html"> <button type="button"  class="btn btn-dark btn-xs btn-block download-button">View More</button></a>
+              <button type="button" class="btn btn-dark btn-xs btn-block download-button"><a href="tickets.html">View More</a></button>
             </div>
           </div>
-          <div class="col-md-4 mb-2" id="Loss of Revenue">
+          <div class="col-md-4" id="Loss of Revenue">
             <div class="card">
               <div class="card-header">
                 <h3>Loss of Revenue</h3>
@@ -246,9 +364,29 @@ Coded by www.creative-tim.com
               </div>
             </div>
           </div>
-          <div class="mt-2"></div>
         </div>
+
+
       </div>
+
+      <!-- <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
+                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
+                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+              </ul>
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © 2020, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer> -->
     </div>
   </div>
   <!--   Core JS Files   -->
@@ -264,6 +402,7 @@ Coded by www.creative-tim.com
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+ 
 </body>
 
 </html>
