@@ -147,7 +147,7 @@ Coded by www.creative-tim.com
               </div>
              
               <diV style="margin-left: 620px;">
-                <a href="create project.html"> <button type="submit"  class="btn btn-primary mb-2">Add a project</button></a>
+                <a href="create-project.html"> <button type="submit"  class="btn btn-primary mb-2">Add a project</button></a>
                </diV>
             </div>
          
@@ -176,54 +176,31 @@ Coded by www.creative-tim.com
                       </div>
                     </td>
                   </tr>
+                  <% for (var prcount=0 ;prcount < projarray.length ; prcount++) { %>
                   <tr>
-                    <th scope="row">2</th>
-                    <td>Informatica</td>
-                    <td>ELC</td>
-                    <td>Medium</td>
+                    <th scope="row"><%= prcount+1 %></th>
+                    <td><%= projarray[prcount].name %></td>
+                    <% if (projarray[prcount].dependentsavailable) {%>
+                      <td> <% var Dependents=projarray[prcount].dependentlist %>
+                      <% for (k=0;k< Dependents.length ; k++) {%>
+                        <%= Dependents[k].projectName%><br>
+                          <% } %>
+                      </td>
+                      <% } else {%>
+                        <td>Not Dependencies</td>
+                        <% } %>
+                    
+                    <td><%= projarray[prcount].status %></td>
                     <td>
                       <div>
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="pl-2 fa-regular fa-trash-can"></i>
+                        <a href="edit project.html" class="icon-block"> <i class="fa-regular fa-pen-to-square pointer"></i></a>
+                       
+                        <i class="pl-2 fa-regular fa-trash-can pointer"></i>
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Asknow</td>
-                    <td>ELC<br>ASD<br>PingID</td>
-                    <td>Low</td>
-                    <td>
-                      <div>
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="pl-2 fa-regular fa-trash-can"></i>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Kronos</td>
-                    <td>Pc-checkin<br>Pc Wrapper</td>
-                    <td>Normal</td>
-                    <td>
-                      <div>
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <i class="pl-2 fa-regular fa-trash-can"></i>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Asknow</td>
-                    <td>ELC<br>ASD<br>PingID</td>
-                    <td>Low</td>
-                    <td>
-                      <div>
-                        <i class="fa-regular fa-pen-to-square pointer"></i>
-                        <i class="pl-2 fa-regular fa-trash-can"></i>
-                      </div>
-                    </td>
-                  </tr>
+                  <% } %>
+
                 </tbody>
               </table>
             </div>

@@ -58,7 +58,7 @@ Coded by www.creative-tim.com
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                <div class="collapse navbar-collapse justify-content-end" name="navigation">
                     <!-- <form>
                         <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Search...">
@@ -71,7 +71,7 @@ Coded by www.creative-tim.com
                     </form> -->
                     <ul class="navbar-nav">
                         <li class="nav-item btn-rotate dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                            <a class="nav-link dropdown-toggle" href="http://example.com" name="navbarDropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="nc-icon nc-bell-55"></i>
                                 <p>
@@ -129,19 +129,19 @@ Coded by www.creative-tim.com
                 <div class="mt-4 mb-4">
                     <h3 class=" text-themecolor mb-0>Dashboard">Create a project</h3>
                 </div>
-                <form>
+                <form action="/addproject" method="POST">
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class="row mb-4">
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example1">Project Id</label>
-                                <input type="text" id="form3Example1" class="form-control" />
+                                <input type="text" name="form3Example1" class="form-control" />
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example2">Project Name</label>
-                                <input type="text" id="form3Example2" class="form-control" />
+                                <input type="text" name="form3Example2" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -149,31 +149,31 @@ Coded by www.creative-tim.com
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example3">FTE Count</label>
-                                <input type="number" id="form3Example3" class="form-control" />
+                                <input type="number" name="form3Example3" class="form-control" />
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example4">FTE Cost</label>
-                                <input type="number" id="form3Example4" class="form-control" />
+                                <input type="number" name="form3Example4" class="form-control" />
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example5">Alias</label>
-                                <input type="text" id="form3Example5" class="form-control" />
+                                <input type="text" name="form3Example5" class="form-control" />
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example6">Operational Status</label>
-                                <input type="text" id="form3Example6" class="form-control" />
+                                <input type="text" name="form3Example6" class="form-control" />
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="text-muted mr-4" for="order-sort">Dependencies Available</label>
-                                <select class="form-control" id="order-sort">
+                                <select class="form-control" name="order-sort">
                                     <option>Yes</option>
                                     <option>No</option>
                                 </select>
@@ -186,28 +186,28 @@ Coded by www.creative-tim.com
                                 <fieldset>
                                     <legend>Dependency List:</legend>
                                     <label class="text-muted mr-3" for="order-sort">Project Name:</label>
-                                    <select class="form-control" id="order-sort">
+                                    <select class="form-control" name="order-sort">
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
                                     <label class="text-muted mr-3" for="order-sort">Project Id:</label>
-                                    <select class="form-control" id="order-sort">
+                                    <select class="form-control" name="order-sort">
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
                                     <label class="text-muted mr-3" for="order-sort">Criticality Level:</label>
-                                    <select class="form-control" id="order-sort">
+                                    <select class="form-control" name="order-sort">
                                         <option>Critical</option>
                                         <option>Warning</option>
                                         <option>Good</option>
                                     </select>
                                     <label class="text-muted mr-3" for="order-sort">Required For Operation:</label>
-                                    <select class="form-control" id="order-sort">
+                                    <select class="form-control" name="order-sort">
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
                                     <label class="text-muted mr-3" for="order-sort">SubDependents Available:</label>
-                                    <select class="form-control" id="order-sort">
+                                    <select class="form-control" name="order-sort">
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
@@ -219,12 +219,12 @@ Coded by www.creative-tim.com
                                 <fieldset>
                                     <legend>DownStream List:</legend>
                                     <label class="text-muted mr-3" for="order-sort">Project Name:</label>
-                                    <select class="form-control" id="order-sort">
+                                    <select class="form-control" name="order-sort">
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
                                     <label class="text-muted mr-3" for="order-sort">Project Id:</label>
-                                    <select class="form-control" id="order-sort">
+                                    <select class="form-control" name="order-sort">
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
@@ -234,7 +234,7 @@ Coded by www.creative-tim.com
                                     <!-- <label class = "text-muted mr-3" for ="form3Example7" >Email</label>
                                                             <input type="text" id = "form3Example7" class = "form-control"/> -->
                                     <label class="text-muted mr-3" for="form3Example7">Email Id</label>
-                                    <input type="text" id="form3Example7" class="form-control" />
+                                    <input type="text" name="form3Example7" class="form-control" />
                                 </fieldset>
                             </div>
                         </div>
@@ -243,7 +243,7 @@ Coded by www.creative-tim.com
                         <div class="col" style="padding-left: 2rem;">
                             <!-- <div class="form-outline"> -->
                             <label class="text-muted mr-4" for="order-sort">Monitoring Type</label>
-                            <select class="form-control" id="order-sort">
+                            <select class="form-control" name="order-sort">
                                 <option>Asknow based</option>
                                 <option>API based</option>
                             </select>
@@ -253,19 +253,19 @@ Coded by www.creative-tim.com
                         <div class="col">
                             <div class="form-outline">
                                 <label class="text-muted mr-3" for="form3Example8">Sys Id</label>
-                                <input type="text" id="form3Example8" class="form-control" />
+                                <input type="text" name="form3Example8" class="form-control" />
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example9">Monitoring Frequency</label>
-                                <input type="number" id="form3Example9" class="form-control" />
+                                <input type="number" name="form3Example9" class="form-control" />
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example10">Monitoring ID</label>
-                                <input type="text" id="form3Example10" class="form-control" />
+                                <input type="text" name="form3Example10" class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -275,9 +275,9 @@ Coded by www.creative-tim.com
                                 <fieldset>
                                     <legend>Senior POC</legend>
                                     <label class="text-muted mr-3" for="form3Example11">Name</label>
-                                    <input type="text" id="form3Example11" class="form-control" />
+                                    <input type="text" name="form3Example11" class="form-control" />
                                     <label class="text-muted mr-3" for="form3Example12">Email</label>
-                                    <input type="text" id="form3Example12" class="form-control" />
+                                    <input type="text" name="form3Example12" class="form-control" />
                                 </fieldset>
                             </div>
                         </div>
@@ -287,9 +287,9 @@ Coded by www.creative-tim.com
                                 <fieldset>
                                     <legend>Secondary POC</legend>
                                     <label class="text-muted mr-3" for="form3Example13">Name</label>
-                                    <input type="text" id="form3Example13" class="form-control" />
+                                    <input type="text" name="form3Example13" class="form-control" />
                                     <label class="text-muted mr-3" for="form3Example14">Email</label>
-                                    <input type="text" id="form3Example14" class="form-control" />
+                                    <input type="text" name="form3Example14" class="form-control" />
                                 </fieldset>
                             </div>
                         </div>
@@ -298,24 +298,24 @@ Coded by www.creative-tim.com
                         <fieldset>
                             <legend>SLA Criteria</legend>
                             <label class="text-muted mr-3" for="form3Example15">P1</label>
-                            <input type="number" id="form3Example15" class="form-control" />
+                            <input type="number" name="form3Example15" class="form-control" />
                         </fieldset>
                         <div class="col" style="padding-top: 3rem;">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example16">P2</label>
-                                <input type="number" id="form3Example16" class="form-control" />
+                                <input type="number" name="form3Example16" class="form-control" />
                             </div>
                         </div>
                         <div class="col" style="padding-top: 3rem;">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example17">P3</label>
-                                <input type="number" id="form3Example17" class="form-control" />
+                                <input type="number" name="form3Example17" class="form-control" />
                             </div>
                         </div>
                         <div class="col" style="padding-top: 3rem;">
                             <div class="form-outline">
                                 <label class="form-label" for="form3Example18">P4</label>
-                                <input type="number" id="form3Example18" class="form-control" />
+                                <input type="number" name="form3Example18" class="form-control" />
                             </div>
                         </div>
                     </div>

@@ -42,9 +42,13 @@ Coded by www.creative-tim.com
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->->
   <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
-<body class="">
+<body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-absolute fixed-top  topbar">
       <div class="container-fluid">
@@ -167,13 +171,7 @@ Coded by www.creative-tim.com
       <section class="main-conent" id="pricing" style="margin-left: 1rem;">
         <title>bs4 account tickets - Bootdey.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
-        </head>
 
-        <body>
-          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
           <div class="container mb-4 main-container">
             <div class="row" style="margin-right: 1rem;/* margin-left: 1rem;">
               <!-- Orders Table-->
@@ -182,7 +180,7 @@ Coded by www.creative-tim.com
                   <thead>
                     <tr>
                       <th>S.no</th>
-                      <th>Project ID</th>
+                      <th>Incident ID</th>
                       <th>Project Name</th>
                       <th>Dependent Project</th>
                       <th>Description</th>
@@ -190,56 +188,21 @@ Coded by www.creative-tim.com
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        <class="navi-link"><a href="number.html" data-toggle="page-link">7765654</a>
-                      </td>
-                      <td><span>Asknow</span></td>
+                    <% for(var counter=0; counter< incarray.length; counter++) { %>
+                      <tr>
+                        <td><%= counter+1 %></td>
+                      <td><a class="navi-link" href="Ticket ID" data-toggle="modal"><%= incarray[counter].Inc_Number %></a></td>
+                      <td><span><%= incarray[counter].Business_Service %></span></td>
                       <td><span>ELC<br>ASD</span></td>
-                      <td><span>P1 outage</span></td>
+                      <td><span>P<%= incarray[counter].Priority %></span></td>
+                      <% if (incarray[counter].Priority == 1){ %>
                       <td><span class="badge badge-danger m-0">Critical</span></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>
-                        <class="navi-link"><a href="number.html" data-toggle="page-link">123654</a>
-                      </td>
-                      <td><span>Asknow</span></td>
-                      <td><span>ELC<br>ASD</span></td>
-                      <td><span>P1 outage</span></td>
-                      <td><span class="badge badge-warning m-0">Warning</span></td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>
-                        <class="navi-link"><a href="number.html" data-toggle="page-link">876594</a>
-                      </td>
-                      <td><span>Kronos</span></td>
-                      <td><span>PingID<br>PC Wrapper</span></td>
-                      <td><span>P2 outage</span></td>
-                      <td><span class="badge badge-warning m-0">Warning</span></td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>
-                        <class="navi-link"><a href="number.html" data-toggle="page-link">187645</a>
-                      </td>
-                      <td><span>Ayehu</span></td>
-                      <td><span>ELC<br>Pc Check-in<br>PC Wrapper</span></td>
-                      <td><span>P1 outage</span></td>
-                      <td><span class="badge badge-success m-0">Good</span></td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>
-                        <class="navi-link"><a href="number.html" data-toggle="page-link">987654</a>
-                      </td>
-                      <td><span>Informatica</span></td>
-                      <td><span>GSD</span></td>
-                      <td><span>P2 outage</span></td>
-                      <td><span class="badge badge-success m-0">Good</span></td>
-                    </tr>
+  
+                      <%} else { %>
+                        <td><span class="badge badge-warning m-0">Warning</span></td>
+                        <% }%>
+                        </tr>
+                        <% } %>
                   </tbody>
                 </table>
                 <div class="m-4">
