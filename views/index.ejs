@@ -23,8 +23,7 @@ Coded by www.creative-tim.com
   <title>
     Enterprice Application Dashboard
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-    name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -37,81 +36,7 @@ Coded by www.creative-tim.com
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script>
-  $(function() {
-   var print = function(msg) {
-     alert(msg);
-   };
-
-   var setInvisible = function(elem) {
-     elem.css('visibility', 'hidden');
-   };
-   var setVisible = function(elem) {
-     elem.css('visibility', 'visible');
-   };
-
-   var elem = $("#elem");
-   var items = elem.children();
-
-   // Inserting Buttons
-   elem.prepend('<i id="left-button" class="arrow fa-solid fa-circle-left"></i>');
-   elem.append('<i id="right-button" class="arrow fa-solid fa-circle-right"></i>');
-
-   // Inserting Inner
-   items.wrapAll('<div id="inner" />');
-
-   // Inserting Outer
-   elem.find('#inner').wrap('<div id="outer"/>');
-
-   var outer = $('#outer');
-
-   var updateUI = function() {
-     var maxWidth = outer.outerWidth(true);
-     var actualWidth = 0;
-     $.each($('#inner >'), function(i, item) {
-       actualWidth += $(item).outerWidth(true);
-     });
-
-     if (actualWidth >= maxWidth) {
-       setVisible($('#right-button'));
-     }
-     if ($('#outer').scrollLeft() <= 0) {
-         setInvisible($('#left-button'));
-       }else{
-        setVisible($('#left-button'));
-       }
-       var leftPos = outer.scrollLeft();
-       if(leftPos + maxWidth >= actualWidth){
-        setInvisible($('#right-button'));
-       }
-   };
-   updateUI();
-
-   $('#left-button').click(function() {
-     var leftPos = outer.scrollLeft();
-     outer.animate({
-       scrollLeft: leftPos - 800
-     }, 800,function() {
-      updateUI();
-         }); 
-       
-     
-   });
-
-   $('#right-button').click(function() {
-     setVisible($('#left-button'));
-     var leftPos = outer.scrollLeft();
-     outer.animate({
-       scrollLeft: leftPos + 800
-     }, 800,function() {
-      updateUI();
-         });
-   });
-  
- 
- });
-
-</script>
+<!-- <script src="./assets/js/dashboard.js"></script> -->
 <body class="">
   <header>
     <nav class="navbar navbar-expand-lg navbar-absolute fixed-top  topbar">
@@ -198,6 +123,7 @@ Coded by www.creative-tim.com
         </ul>
       </div>
     </div>
+    </script>
     <div class="container-fluid" style="height: 100vh;">
       <!-- Navbar -->
 
@@ -242,12 +168,12 @@ Coded by www.creative-tim.com
 
             </div>
           </div>
-          
         </section>
-        <div class="row mt-5 mr-2">
-          <div class="col-md-8">
-            <div style="background-color:white ;">
-              <table class="table table-hover mb-0">
+        <div class="row mt-5 ">
+          
+          <div class="col-md-7">
+            <div style="background-color:white ;" >
+              <table class="table table-striped center mb-0">
                 <thead>
                   <tr>
                     <th>S.no</th>
@@ -280,41 +206,43 @@ Coded by www.creative-tim.com
               <button type="button" class="btn btn-dark btn-xs btn-block download-button"><a href="tickets.html">View More</a></button>
             </div>
           </div>
-          <div class="col-md-4" id="Loss of Revenue">
-            <div class="card">
-              <div class="card-header">
-                <h3>Loss of Revenue</h3>
-              </div>
-              <div class="card-body">
-                <h2 class="pricing-text">Loss of Revenue</h2>
-                <button type="button" class="btn btn-dark btn-xs btn-block download-button"><a
-                    href="analytics.html">View More</a></button>
-              </div>
-            </div>
+          <div class="col-md-5 pl-0" id="Loss of Revenue" style="background-color:white ;">
+              <table class="table table-striped center mb-0">
+                <thead>
+                  <tr>
+                    <th>API Name</th>
+                    <th>Project Name</th>
+                    <th>Last Checked</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Ticket</td>
+                    <td>Asknow</td>
+                    <td title="Asknow"><span>Asknow</span></td>
+                    <td><span>Up</span></td>
+    
+                  </tr>
+                  <tr>
+                    <td>Ticket</td>
+                    <td>Asknow</td>
+                    <td title="Asknow"><span>Asknow</span></td>
+                    <td><span>Up</span></td>
+                  </tr>
+                  <tr>
+                    <td>Ticket</td>
+                    <td>Asknow</td>
+                    <td title="Asknow"><span>Asknow</span></td>
+                    <td><span>Up</span></td>
+                  </tr>
+                
+                </tbody>
+              </table>
+              <button type="button" class="btn btn-dark btn-xs btn-block download-button"><a href="tickets.html">View More</a></button>
           </div>
         </div>
-
-
       </div>
-
-      <!-- <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © 2020, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer> -->
     </div>
   </div>
   <!--   Core JS Files   -->

@@ -82,16 +82,6 @@
   font-size: 28px;
   color: cornflowerblue;
 }
-#outer {
-  float: left;
-  width: 913px;
-  overflow: hidden;
-  white-space: nowrap;
-  display: inline-block;
-  margin-left: 2px;
-  margin-right:2px;
-}
-
 #left-button {
   float: left;
   width: 30px;
@@ -113,14 +103,23 @@ a {
 #inner:first-child {
   margin-left: 0;
 }
+td
+{
+ max-width: 100px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
 
-
+div.a:hover {
+  overflow: visible;
+}
 
 .hide {
   display: none;
 }
 section .card{
-  max-width: 220px !important;
+  max-width: 230px !important;
   display: inline-block;
 }
 .circle {
@@ -131,7 +130,8 @@ section .card{
   font-size: 35px;
   color: #fff;
   text-align: center;
-  background: orange
+  background: red;
+  margin-left: 14px;
 }
 .search-box{
   margin-left: 1rem;
