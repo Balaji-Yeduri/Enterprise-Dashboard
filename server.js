@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname,'views')));
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
-fetchsnowdata.fetchincidents().then(DBIncidentArray => dbcontroller.getprojectslist(DBIncidentArray)).then((projectarray)=>{
+fetchsnowdata.fetchincidents().then(DBIncidentArray => dbcontroller.getprojectslist(DBIncidentArray)).then( projectarray=> {
     // //=======================
     //      R O U T E S
     //=======================
@@ -49,8 +49,8 @@ fetchsnowdata.fetchincidents().then(DBIncidentArray => dbcontroller.getprojectsl
     
         console.log(req.body);
      });
-     cron.schedule('* * * * *', function() {
-        console.log('running a task every 1 minute');
+     cron.schedule('*/3 * * * *', function() {
+        console.log('running a task every 3 minute');
         fetchsnowdata.fetchincidents().then(currentresponse =>{
             DBIncidentArray = currentresponse;
             dbcontroller.getprojectslist(DBIncidentArray)

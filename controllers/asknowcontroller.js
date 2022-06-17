@@ -24,7 +24,7 @@ const fetchdata =  (lastruntime,db,asknowquerystring) =>{
         params: {
          'sysparm_fields': 'number,u_outage_flag,priority,incident_state,cmdb_ci.name,opened_at',
          //'sysparm_limit':1,
-         'sysparm_query':"priorityIN1,2,3^incident_stateIN1,2,3,4,5^sys_created_on>javascript:gs.dateGenerate('"+lastruntime+"')"+asknowquerystring
+         'sysparm_query':"priorityIN1,2^incident_stateIN1,2,3,4,5^sys_created_on>javascript:gs.dateGenerate('"+lastruntime+"')"+asknowquerystring
         }
       }
      axios.get(config.asknow.host+'/api/now/table/incident', inputdata)

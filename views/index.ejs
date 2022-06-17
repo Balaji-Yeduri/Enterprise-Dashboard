@@ -134,17 +134,6 @@ Coded by www.creative-tim.com
         </div>
         <section class="main-conent" id="pricing">
           <div class="row">
-            <div class="col-md-3 card pointer ml-3">
-            <!-- <a href="project-management.html"class="card pointer"> -->
-            <div class="card-body center center-allign">
-            <h4>Informatica</h4>
-            <div class="circle mt-3" style="margin-left: 14px;">
-            <div class="critical-count">200 </div>
-            </div>
-            <!-- <button type="button" class="btn-floating btn btn-dark btn-lg btn-block download-button">View More</button> -->
-            </div>
-            <!-- </a> -->
-            </div>
               <% for (var prcount=0 ;prcount < projarray.length ; prcount++) { %>
                 <div class="col-md-3 card pointer ml-3">
                   <div class="card-body center center-allign">
@@ -156,7 +145,7 @@ Coded by www.creative-tim.com
                     <div class="circle mt-3" style="margin-left: 14px;">
                       <% }%>
                   <div class="critical-count"><%= projarray[prcount].inccount %>
-              <% } %>
+              
                   </div>
                 </div>
                 <!-- <button type="button" class="btn-floating btn btn-dark btn-lg btn-block download-button">View More</button> -->
@@ -165,7 +154,7 @@ Coded by www.creative-tim.com
                 </div>
 
   
-
+                <% } %>
             </div>
           </div>
         </section>

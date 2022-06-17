@@ -2,6 +2,7 @@ const ProjectModel  =  require("../models/ProjectModel.js");
 const config = require('../config');
 const IncidentModel = require("../models/IncModel.js");
 const mongoose = require("mongoose");
+const alert = require('./alertController')
 
 
 const dbconnect = () => {
@@ -106,23 +107,39 @@ const dbconnect = () => {
     return new Promise((resolve, reject) => {
         for (eachinc= 0; eachinc<IncidentArray.length; eachinc++)
         {
-            if(IncidentArray[eachinc].Outage_Flag === true || IncidentArray[eachinc].Priority === 1)
+            if( IncidentArray[eachinc].Priority === 1 )//|| IncidentArray[eachinc].Outage_Flag === true)
             {
-                ProjectModel.findOneAndUpdate({projectName:IncidentArray[eachinc].Business_Service}, {operationalStatus : 'Critical'}).then(updateEntry => function(updateEntry){
+                ProjectModel.findOneAndUpdate({projectName:IncidentArray[eachinc].Business_Service}, {operationalStatus : 'Critical'},{new: true},function(err,updateEntry){
+                    if(err){
+                       console.log(err);
+                        resolve(false);
+                      }
+                      else if(updateEntry == null ){
+                        resolve();
+                      }
+                      else{
+                    var emailidvalue =updateEntry.emailDL[0].emailId;
                     if(updateEntry.dependenciesAvailable){
                         dependents=updateEntry.dependencyList;
                         for (dependentscount=0;dependentscount < dependents.length ; dependentscount++){
-                        ProjectModel.findOneAndUpdate({projectName:updateEntry.dependencyList[dependentscount].projectName,operationalStatus : 'good'}, {operationalStatus : 'Warning'})
-                    }}
+                        ProjectModel.findOneAndUpdate({projectName:updateEntry.dependencyList[dependentscount].projectName,operationalStatus : 'good'}, {operationalStatus : 'Warning'},{new: true},function(err,updateEntry2){
+                           // emailidvalue=emailidvalue+';'+updateEntry2.emailDL[0].emailId
+                        })
+                    }
+                }
+                alert.sendemail(emailidvalue,'High Priority Ticket Created for '+updateEntry.projectName,'High Priority Ticket Created for '+updateEntry.projectName)
+                alert.sendteamsnotification('High Priority Ticket Created for '+updateEntry.projectName,'High Priority Ticket Created for '+updateEntry.projectName)
+
+                    resolve()
+                }
                     
                 })
             }
         }
-        resolve()
-
-
-  });
-  }
+    });
+                
+            }
+ 
 // mongoose.connect('mongodb://localhost:27017/Enterprise__dashboard', function(err, client) {
 //        if (err) {
 //             console.log('Mongo db connection Error', err); 
