@@ -141,9 +141,11 @@ Coded by www.creative-tim.com
                 <% if (projarray[prcount].status === 'Critical') {%>
 
                 <div class="circle mt-3" style="margin-left: 14px; background: red;">
-                  <% } else {%>
+                  <% } if (projarray[prcount].status === 'Warning') {%>
                     <div class="circle mt-3" style="margin-left: 14px;">
-                      <% }%>
+                      <% } if (projarray[prcount].status === 'good') {%>
+                        <div class="circle mt-3" style="margin-left: 14px; background: green;">
+                          <% } %>
                   <div class="critical-count"><%= projarray[prcount].inccount %>
               
                   </div>
@@ -186,7 +188,7 @@ Coded by www.creative-tim.com
                     <td><span class="badge badge-danger m-0">Critical</span></td>
 
                     <%} else { %>
-                      <td><span class="badge badge-warning m-0">Warning</span></td>
+                      <td><span class="badge badge-danger m-0">High</span></td>
                       <% }%>
                       </tr>
                       <% } %>

@@ -18,7 +18,7 @@ const fetchdata =  (lastruntime,db,asknowquerystring) =>{
   return new Promise((resolve, reject) => {
   
       //get api call
-  //    console.log(lastruntime);
+    console.log('in fetch '+lastruntime);
       let inputdata = {
         headers: {'Authorization': config.asknow.auth},
         params: {
@@ -29,7 +29,7 @@ const fetchdata =  (lastruntime,db,asknowquerystring) =>{
       }
      axios.get(config.asknow.host+'/api/now/table/incident', inputdata)
     .then((res) => {
-     // console.log(res.data);
+      console.log('asknow resp status code '+res.status);
       console.log(res.data.result.length);
       if(res.data.result.length && res.data.result.length >0){
         var inputobj=[];
@@ -41,7 +41,7 @@ const fetchdata =  (lastruntime,db,asknowquerystring) =>{
         }
         //else{
           
-          IncidentModel.find({},function(err, DBIncidentArray){
+          IncidentModel.find({}).sort([['Priority', 1]]).exec(function(err, DBIncidentArray){
             //logger.info(DBIncidentArray.length + ' retrieved');
           //console.log(DBIncidentArray.length);
           resolve(DBIncidentArray);
@@ -58,8 +58,7 @@ const fetchdata =  (lastruntime,db,asknowquerystring) =>{
 }
 
 
-
- function fetchincidents(){   
+function fetchincidents(){   
   return new Promise((resolve, reject) => {
   dbcontroller.dbconnect()
   .then(db => dbcontroller.fetchlastruntime(db))

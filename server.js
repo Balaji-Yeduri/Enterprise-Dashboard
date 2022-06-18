@@ -10,7 +10,8 @@ const dbcontroller= require("./controllers/dbcontroller.js" ) ;
 var logger = require('./controllers/logcontroller.js');
 
 //logger.info('log to file');
-
+var DBIncidentArray=[];
+var projectarray=[];
 
 
 
@@ -19,7 +20,7 @@ app.use(express.static(path.join(__dirname,'views')));
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
-fetchsnowdata.fetchincidents().then(DBIncidentArray => dbcontroller.getprojectslist(DBIncidentArray)).then( projectarray=> {
+start().then(success=> {
     // //=======================
     //      R O U T E S
     //=======================
@@ -49,7 +50,7 @@ fetchsnowdata.fetchincidents().then(DBIncidentArray => dbcontroller.getprojectsl
     
         console.log(req.body);
      });
-     cron.schedule('*/3 * * * *', function() {
+     cron.schedule('*/5 * * * *', function() {
         console.log('running a task every 3 minute');
         fetchsnowdata.fetchincidents().then(currentresponse =>{
             DBIncidentArray = currentresponse;
@@ -68,7 +69,20 @@ fetchsnowdata.fetchincidents().then(DBIncidentArray => dbcontroller.getprojectsl
   });
     
 
+function start()
+{
+    return new Promise((resolve, reject) => {
+        dbcontroller.getincidentsfromdb().then(currentresponse =>{
+        DBIncidentArray = currentresponse;
+        dbcontroller.getprojectslist(DBIncidentArray)
+        .then(secondresponse =>{
+            projectarray = secondresponse;
+            resolve('success')
+        })
+    });
 
+});
+}
 
 
 

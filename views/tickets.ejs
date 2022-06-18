@@ -117,31 +117,6 @@
         <div class="mt-4 mb-4">
           <h3 class=" text-themecolor mb-0>Dashboard">Tickets</h3>
         </div>
-        <div class=" mt-5">
-          <div class="row">
-            <div>
-              <form>
-                <div class="input-group no-border search-box">
-                  <input type="text" value="" class="form-control" placeholder="Search...">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <i class="nc-icon nc-zoom-split"></i>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-
-            <diV style="margin-left: 620px;">
-              <select class="form-control" id="order-sort">
-                <option>All</option>
-                <option>Critical</option>
-                <option>Warning</option>
-                <option>Good</option>
-              </select>
-            </diV>
-          </div>
-        </div>
 
       </div>
       <section class="main-conent" id="pricing" style="margin-left: 1rem;">
@@ -175,7 +150,7 @@
                       <td><span class="badge badge-danger m-0">Critical</span></td>
   
                       <% } else { %>
-                        <td><span class="badge badge-warning m-0">Warning</span></td>
+                        <td><span class="badge badge-danger m-0">High</span></td>
                         <% }%>
                         </tr>
                         <% } %>

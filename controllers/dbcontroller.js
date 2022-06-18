@@ -27,24 +27,38 @@ const dbconnect = () => {
   const fetchlastruntime = (db) => {
     return new Promise((resolve, reject) => {
    //let lastruntime = false;
-  
-    db.collection('Lastruntime').find().toArray(function(err, result){
-      if(err)
-      {
-          console.log('Error Reading table');
-          resolve(false);
-      }
-      else{
-      lastruntime = result[0]['datetime'];
-      console.log(lastruntime);
-      let date_ob = new Date();
-      var monthcount=date_ob.getMonth()+1;
-      var currentruntime=date_ob.getFullYear()+'-'+monthcount+'-'+date_ob.getDate()+' '+date_ob.getHours()+':'+date_ob.getMinutes()+':'+date_ob.getMinutes()
-      //console.log(currentruntime);
-      //db.collection('Lastruntime')findOneAndUpdate({ datetime':"'2021-10-01','07:44:00' },{$set: {'datetime':"'2021-01-01','07:44:00'"}})
-      resolve(lastruntime);
+   db.createCollection("Lastruntime", function(err, res) {
+    if (err)
+    {
+        console.log('collect present');
+        db.collection('Lastruntime').find().toArray(function(err, result){
+            if(err)
+            {
+                console.log('Error Reading table');
+                resolve(false);
+            }
+            else{
+            lastruntime = result[0]['datetime'];
+            console.log(lastruntime+'1');
+            let date_ob = new Date();
+            var monthcount=date_ob.getMonth()+1;
+            var minutecount = date_ob.getMinutes();
+            var currentruntime=date_ob.getFullYear()+'-'+monthcount+'-'+date_ob.getDate()+' '+date_ob.getHours()+':'+minutecount+':'+date_ob.getMinutes()
+            console.log(currentruntime);
+            db.collection('Lastruntime').findOneAndUpdate({ 'datetime':lastruntime},{ $set:{'datetime': currentruntime }})
+            resolve(lastruntime);
+          }
+               });
+
+
     }
-         });
+    else{
+        db.collection('Lastruntime').insertOne({"datetime" : "2022-03-17 22:20:00"})
+        resolve("2022-03-17 22:20:00");
+    }
+ }
+ );
+
     
   })
   }
@@ -66,7 +80,7 @@ const dbconnect = () => {
             asknowquerystring= asknowquerystring+'cmdb_ci='+result[arrayindex]['sysId']+'^OR';
            }
            asknowquerystring='^'+asknowquerystring;
-           //console.log(asknowquerystring);
+           console.log(asknowquerystring);
   
            resolve(asknowquerystring);
         }
@@ -103,8 +117,25 @@ const dbconnect = () => {
   }
 
 
+  const getincidentsfromdb= () => {
+    return new Promise((resolve, reject) => {
+  //get asknow projects from db
+    dbconnect()
+    IncidentModel.find({}).sort([['Priority', 1]]).exec(function(err, DBIncidentArray){
+    //logger.info(DBIncidentArray.length + ' retrieved');
+     console.log('inc from DB '+DBIncidentArray.length);
+    resolve(DBIncidentArray);
+        });
+    }
+        )
+
+  }
+  
+
+
   const updateDB= (IncidentArray) => {
     return new Promise((resolve, reject) => {
+        console.log(IncidentArray.length);
         for (eachinc= 0; eachinc<IncidentArray.length; eachinc++)
         {
             if( IncidentArray[eachinc].Priority === 1 )//|| IncidentArray[eachinc].Outage_Flag === true)
@@ -168,4 +199,4 @@ const dbconnect = () => {
 //         })
 // }
 // });
-module.exports = { dbconnect,fetchlastruntime,asknowprojectslist,getprojectslist,updateDB };
+module.exports = { getincidentsfromdb,dbconnect,fetchlastruntime,asknowprojectslist,getprojectslist,updateDB };
