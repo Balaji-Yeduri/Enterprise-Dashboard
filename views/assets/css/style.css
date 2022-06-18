@@ -92,6 +92,16 @@
   float: left;
   width: 30px;
   text-align: center;
+}.fa-caret-down {
+  color: green;
+}
+
+.fa-caret-up {
+  color: red;
+}
+
+.analytics {
+  text-align: center;
 }
 
 a {
@@ -99,7 +109,6 @@ a {
   font-weight: bolder;
   color: red;
 }
-
 #inner:first-child {
   margin-left: 0;
 }
