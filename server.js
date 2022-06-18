@@ -51,7 +51,7 @@ start().then(success=> {
         console.log(req.body);
      });
      cron.schedule('*/5 * * * *', function() {
-        console.log('running a task every 3 minute');
+        console.log('running a task every 5 minute');
         fetchsnowdata.fetchincidents().then(currentresponse =>{
             DBIncidentArray = currentresponse;
             dbcontroller.getprojectslist(DBIncidentArray)
