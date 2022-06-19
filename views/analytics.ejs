@@ -123,15 +123,50 @@ Coded by www.creative-tim.com
       </div>
     </div>
     <div class="container-fluid" style="height: 100vh;">
-      <!-- Navbar -->
-
-      <!-- End Navbar -->
       <div class="content ml-4">
-        <div class="mt-4 mb-4"><h3 class=" text-themecolor mb-0>Dashboard">Analytics</h3></div>
-          <!-- </div> -->
+        <div class="mt-4 mb-4">
+          <h3 class=" text-themecolor mb-0>Dashboard">Analytics</h3>
         </div>
- 
+
       </div>
+  <div class="analytics row mb-4">
+        <div class="col">
+          <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><b>No. of Outages</b></div>
+            <div class="card-body" style="display:flex; justify-content:center; align-items: center">
+              <h3 id="outage_value">10 </h3>
+              <h3 style="margin-left:0.5vw" id="arrow_outage"></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><b>Loss of Revenue</b></div>
+            <div class="card-body" style="display:flex; justify-content:center; align-items: center">
+              <h3 id="revenue_loss">$150 </h3>
+              <h3 style="margin-left:0.5vw" id="arrow_revenue"></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><b>Average Resolution Time</b></div>
+            <div class="card-body" style="display:flex; justify-content:center; align-items: center">
+              <h3 id="avg_time">50 </h3>
+              <h3 style="margin-left:0.5vw" id="arrow_avg"></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header"><b>Hours worked on</b></div>
+            <div class="card-body" style="display:flex; justify-content:center; align-items: center">
+              <h3 id="hrs_worked">50 </h3>
+              <h3 style="margin-left:0.5vw" id="arrow_hrs"></h3>
+            </div>
+          </div>
+        </div>
+    </div>
 
       <!-- <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
         <div class="container-fluid">
@@ -151,7 +186,6 @@ Coded by www.creative-tim.com
           </div>
         </div>
       </footer> -->
-    </div>
 </div>
   </div>
   <!--   Core JS Files   -->
@@ -167,6 +201,7 @@ Coded by www.creative-tim.com
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+  <script src="assets/js/createProject.js"></script>
 </body>
 
 </html>
