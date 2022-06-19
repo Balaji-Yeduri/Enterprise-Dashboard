@@ -36,7 +36,7 @@ Coded by www.creative-tim.com
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<!-- <script src="./assets/js/dashboard.js"></script> -->
+ <script src="./assets/js/dashboard.js"></script>
 <body class="">
   <header>
     <nav class="navbar navbar-expand-lg navbar-absolute fixed-top  topbar">
@@ -123,10 +123,83 @@ Coded by www.creative-tim.com
         </ul>
       </div>
     </div>
-    </script>
+    
     <div class="container-fluid" style="height: 100vh;">
       <!-- Navbar -->
-
+  <!--start toast-->
+  <% if (Notifyarray.length > 0) {%>
+  <div class="m-1">
+  
+    <div class="toastcontainer" style="position: absolute; top: 20px; right: 10px;">
+  
+      <!--Red variant -->
+      
+        
+      <div id="critical" class="toast bg-danger text-white fade show">
+  
+        <div class="toast-header bg-danger text-white">
+  
+          <strong class="me-auto"><i class="bi-x-circle-fill"></i> Critical !</strong>
+  
+          <!-- <small class="ml-1">5 mins ago</small> -->
+  
+          <div onclick="toggle_visibility('critical')"><i class="fa-solid fa-xmark" style="margin-left: 165px;"></i>
+  
+          </div>
+  
+        </div>
+  
+        <div class="toast-body">
+  
+          <ul>
+            <% for (n=0 ; n < Notifyarray.length ; n++) { %>
+            <li><%= Notifyarray[n] %></li>
+            <% } %>
+  
+          </ul>
+  
+        </div>
+  
+      </div>
+      
+      <!--Yellow variant -->
+  
+      <!--<div id="warning" class="toast bg-warning text-dark fade show">
+  
+        <div class="toast-header bg-warning text-dark">
+  
+          <strong class="me-auto"><i class="bi-exclamation-triangle-fill"></i> Warning !</strong>
+  
+          
+  
+          <div onclick="toggle_visibility('warning')"><i class="fa-solid fa-xmark" style="margin-left: 150px;"></i>
+  
+          </div>
+  
+        </div>
+  
+        <div class="toast-body">
+  
+          <ul>
+  
+            <li>p1 has an outage</li>
+  
+            <li>p2 has an outage </li>
+  
+            <li>p3 has an outage</li>
+  
+          </ul>
+  
+        </div>
+  
+      </div>-->
+  
+    </div>
+  
+  </div>
+  <%}%>
+  
+  <!--end toast-->
       <!-- End Navbar -->
       <div class="content ml-4">
         <div class="mt-4 mb-4">

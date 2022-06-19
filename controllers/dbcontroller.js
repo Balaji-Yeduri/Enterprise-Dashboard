@@ -4,6 +4,7 @@ const IncidentModel = require("../models/IncModel.js");
 const mongoose = require("mongoose");
 const alert = require('./alertController')
 
+global.notificationsarray=[];
 
 const dbconnect = () => {
     return new Promise((resolve, reject) => {
@@ -35,11 +36,12 @@ const dbconnect = () => {
             if(err)
             {
                 console.log('Error Reading table');
-                resolve(false);
+                resolve('2022-03-17 22:20:00');
             }
             else{
+            console.log('');
             lastruntime = result[0]['datetime'];
-            console.log(lastruntime+'1');
+            console.log('last runtime '+lastruntime);
             let date_ob = new Date();
             var monthcount=date_ob.getMonth()+1;
             var minutecount = date_ob.getMinutes();
@@ -53,8 +55,9 @@ const dbconnect = () => {
 
     }
     else{
-        db.collection('Lastruntime').insertOne({"datetime" : "2022-03-17 22:20:00"})
-        resolve("2022-03-17 22:20:00");
+      lastruntime='2022-03-17 22:21:00'
+        db.collection('Lastruntime').insertOne({"datetime" : lastruntime})
+        resolve(lastruntime);
     }
  }
  );
@@ -135,6 +138,7 @@ const dbconnect = () => {
 
   const updateDB= (IncidentArray) => {
     return new Promise((resolve, reject) => {
+      notificationsarray=[];
         console.log(IncidentArray.length);
         for (eachinc= 0; eachinc<IncidentArray.length; eachinc++)
         {
@@ -160,7 +164,7 @@ const dbconnect = () => {
                 }
                 alert.sendemail(emailidvalue,'High Priority Ticket Created for '+updateEntry.projectName,'High Priority Ticket Created for '+updateEntry.projectName)
                 alert.sendteamsnotification('High Priority Ticket Created for '+updateEntry.projectName,'High Priority Ticket Created for '+updateEntry.projectName)
-
+                notificationsarray.push(updateEntry.projectName+' has an P1 ticket');
                     resolve()
                 }
                     

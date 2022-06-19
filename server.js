@@ -15,6 +15,7 @@ var projectarray=[];
 
 
 
+
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname,'views')));
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -25,8 +26,11 @@ start().then(success=> {
     //      R O U T E S
     //=======================
     app.get(["/","/index.html"], (req,res) =>{
+        if (projectarray.length>0){
 
-        res.render('index.ejs', {incarray : DBIncidentArray,projarray:projectarray})
+        res.render('index.ejs', {incarray : DBIncidentArray,projarray:projectarray,Notifyarray:notificationsarray})
+        }
+        else{res.render('create-project.ejs', {})}
      });
      app.get("/project-management.html", (req,res) =>{
 
@@ -50,8 +54,8 @@ start().then(success=> {
     
         console.log(req.body);
      });
-     cron.schedule('*/5 * * * *', function() {
-        console.log('running a task every 5 minute');
+     cron.schedule('*/3 * * * *', function() {
+        console.log('running a task every 3 minute');
         fetchsnowdata.fetchincidents().then(currentresponse =>{
             DBIncidentArray = currentresponse;
             dbcontroller.getprojectslist(DBIncidentArray)
