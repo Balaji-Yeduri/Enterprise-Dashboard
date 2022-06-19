@@ -153,12 +153,12 @@ const dbconnect = () => {
                         resolve();
                       }
                       else{
-                    var emailidvalue =updateEntry.emailDL[0].emailId;
+                    var emailidvalue =updateEntry.emailDL[0].email;
                     if(updateEntry.dependenciesAvailable){
                         dependents=updateEntry.dependencyList;
                         for (dependentscount=0;dependentscount < dependents.length ; dependentscount++){
                         ProjectModel.findOneAndUpdate({projectName:updateEntry.dependencyList[dependentscount].projectName,operationalStatus : 'good'}, {operationalStatus : 'Warning'},{new: true},function(err,updateEntry2){
-                           // emailidvalue=emailidvalue+';'+updateEntry2.emailDL[0].emailId
+                           // emailidvalue=emailidvalue+';'+updateEntry2.emailDL[0].email
                         })
                     }
                 }
