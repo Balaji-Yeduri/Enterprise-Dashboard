@@ -146,7 +146,7 @@ Coded by www.creative-tim.com
                 </form>
               </div>
              
-              <diV style="margin-left: 620px;">
+              <diV style="margin-left: 870px;">
                 <a href="create-project.html"> <button type="submit"  class="btn btn-primary mb-2">Add a project</button></a>
                </diV>
             </div>
@@ -167,18 +167,18 @@ Coded by www.creative-tim.com
                   <% for (var prcount=0 ;prcount < projarray.length ; prcount++) { %>
                   <tr>
                     <th scope="row"><%= prcount+1 %></th>
-                    <td><%= projarray[prcount].name %></td>
-                    <% if (projarray[prcount].dependentsavailable) {%>
-                      <td> <% var Dependents=projarray[prcount].dependentlist %>
+                    <td><%= projarray[prcount].projectName %></td>
+                    <% if (projarray[prcount].dependenciesAvailable) {%>
+                      <td> <% var Dependents=projarray[prcount].dependencyList %>
                       <% for (k=0;k< Dependents.length ; k++) {%>
                         <%= Dependents[k].projectName%><br>
                           <% } %>
                       </td>
                       <% } else {%>
-                        <td>Not Dependencies</td>
+                        <td>No Dependencies</td>
                         <% } %>
                     
-                    <td><%= projarray[prcount].status %></td>
+                    <td><%= projarray[prcount].operationalStatus %></td>
                     <td>
                       <div>
                         <a href="edit project.html" class="icon-block"> <i class="fa-regular fa-pen-to-square pointer"></i></a>

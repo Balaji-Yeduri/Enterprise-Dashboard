@@ -134,8 +134,8 @@ Coded by www.creative-tim.com
           <div class="card bg-light mb-3" style="max-width: 18rem;">
             <div class="card-header"><b>No. of Outages</b></div>
             <div class="card-body" style="display:flex; justify-content:center; align-items: center">
-              <h3 id="outage_value">10 </h3>
-              <h3 style="margin-left:0.5vw" id="arrow_outage"></h3>
+              <h3 id="outage_value"><%= analyticsData.outages%> </h3>
+              <h3 style="margin-left:0.5vw;color:red" id="arrow_outage" class = "fa-solid fa-caret-down"></h3>
             </div>
           </div>
         </div>
@@ -143,8 +143,8 @@ Coded by www.creative-tim.com
           <div class="card bg-light mb-3" style="max-width: 18rem;">
             <div class="card-header"><b>Loss of Revenue</b></div>
             <div class="card-body" style="display:flex; justify-content:center; align-items: center">
-              <h3 id="revenue_loss">$150 </h3>
-              <h3 style="margin-left:0.5vw" id="arrow_revenue"></h3>
+              <h3 id="revenue_loss" >$<%= analyticsData.lossOfRevenue%> </h3>
+              <h3 style="margin-left:0.5vw;color:red" id="arrow_revenue" class = "fa-solid fa-caret-down" ></h3>
             </div>
           </div>
         </div>
@@ -152,8 +152,8 @@ Coded by www.creative-tim.com
           <div class="card bg-light mb-3" style="max-width: 18rem;">
             <div class="card-header"><b>Average Resolution Time</b></div>
             <div class="card-body" style="display:flex; justify-content:center; align-items: center">
-              <h3 id="avg_time">50 </h3>
-              <h3 style="margin-left:0.5vw" id="arrow_avg"></h3>
+              <h3 id="avg_time"><%= analyticsData.averageResolutionTime %></h3>
+              <h3 style="margin-left:0.5vw;color:red" id="arrow_avg" class = "fa-solid fa-caret-down"></h3>
             </div>
           </div>
         </div>
@@ -161,8 +161,8 @@ Coded by www.creative-tim.com
           <div class="card bg-light mb-3" style="max-width: 18rem;">
             <div class="card-header"><b>Hours worked on</b></div>
             <div class="card-body" style="display:flex; justify-content:center; align-items: center">
-              <h3 id="hrs_worked">50 </h3>
-              <h3 style="margin-left:0.5vw" id="arrow_hrs"></h3>
+              <h3 id="hrs_worked"><%= analyticsData.timeWorked %> </h3>
+              <h3 style="margin-left:0.5vw;color:red" id="arrow_hrs" class = "fa-solid fa-caret-down"></h3>
             </div>
           </div>
         </div>
@@ -201,7 +201,8 @@ Coded by www.creative-tim.com
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
-  <script src="assets/js/createProject.js"></script>
+  <script src="assets/js/analytics.js"></script>
+  <script src = "../controllers/analyticsController.js"></script>
 </body>
 
 </html>

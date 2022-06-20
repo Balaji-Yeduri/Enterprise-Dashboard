@@ -57,6 +57,44 @@ const fetchdata =  (lastruntime,db,asknowquerystring) =>{
 });
 }
 
+const fetchClosedIncidentsdata =  (db,asknowquerystring) =>{
+  return new Promise((resolve, reject) => {
+  
+      //get api call
+      var date_ob = new Date();
+      date_ob.setDate(date_ob.getDate()-7);
+    console.log('weekDate',date_ob);
+    var monthcount=date_ob.getMonth()+1;
+    var currentruntime=date_ob.getFullYear()+'-'+monthcount+'-'+date_ob.getDate()+' '+date_ob.getHours()+':'+date_ob.getMinutes();+':'+date_ob.getMinutes()
+
+    console.log('in fetch '+currentruntime);
+      let inputdata = {
+        headers: {'Authorization': config.asknow.auth},
+        params: {
+         'sysparm_fields': 'number,u_outage_flag,priority,incident_state,cmdb_ci.name,opened_at,time_worked',
+         //'sysparm_limit':1,
+         'sysparm_query':"priorityIN1,2^incident_stateIN6,7^sys_created_on>javascript:gs.dateGenerate('"+currentruntime+"')"+asknowquerystring
+        }
+      }
+     axios.get(config.asknow.host+'/api/now/table/incident', inputdata)
+    .then((res) => {
+      console.log('asknow resp status code '+res.status);
+      console.log(res.data);
+     
+          resolve(res.data);
+    
+    
+    //}
+      })
+    .catch((error) => {
+      console.error(error)
+    })
+ 
+
+});
+}
+
+
 
 function fetchincidents(){   
   return new Promise((resolve, reject) => {
@@ -70,6 +108,18 @@ function fetchincidents(){
   
 });
 }
+function fetchClosedIncidents(){   
+  return new Promise((resolve, reject) => {
+  dbcontroller.dbconnect()
+  .then(db => dbcontroller.fetchlastruntime(db))
+  .then(lastruntime => dbcontroller.asknowprojectslist(db,lastruntime))
+  .then(asknowquerystring => fetchClosedIncidentsdata(lastruntime,db,asknowquerystring))
+ // .then(DBIncidentArray => dbcontroller.updateDB(DBIncidentArray))
+  .then(DBIncidentArray => resolve(DBIncidentArray))
+
+  
+});
+}
 //fetchincidents();
 
-module.exports = { fetchincidents };
+module.exports = { fetchincidents, fetchClosedIncidents };

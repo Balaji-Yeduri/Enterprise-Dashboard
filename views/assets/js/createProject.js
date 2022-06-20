@@ -19,6 +19,20 @@ function yesnoCheck(that)
     {  document.getElementById("dependency").style.display = "none";
     }
 }
+function dependencyCheck(that)
+{
+if (that.value == "yes")
+{ 
+  document.getElementById("dependency").style.display = "block";
+}
+
+else
+
+{ document.getElementById("dependency").style.display = "none";
+
+}
+
+}
 function updownCheck() {
   let obj = {
     lastWeekOutage: 40,
